@@ -1,0 +1,42 @@
+{
+  "manifest_version": 2,
+
+  "name": "Keep-input",
+  "description": "Keep input values ​​after refreshing the page or accidentally closing the page.",
+  "version": "1.0",
+
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+
+  "browser_action": {
+    "default_icon": {
+      "19": "images/icon19.png",
+      "38": "images/icon38.png"
+    },
+    "default_title": "my keep input",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [{
+    "matches": ["http://www.ituring.com.cn/*"],
+    "js": ["popup.js"]
+  }],
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  },
+  "options_page": "options.html",
+  "permissions": [
+    "contextMenus",
+    "notifications"
+  ],
+  "web_accessible_resources": [
+    "images/*.png"
+  ],
+  "omnibox": {
+    "keyword": "keep"
+  }
+}
